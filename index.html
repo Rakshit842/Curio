@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curio | Instant Cloud Quizzes</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@400;600&family=Unbounded:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">Curio</a>
+            </div>
+            <nav class="nav-buttons">
+                <a href="login_page.html" class="btn-text">Log in</a>
+                <a href="signup_page.html" class="btn-primary">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Master your assessments with scalable cloud quizzes.</h1>
+            <p>Curio is the cloud-based solution for instant evaluation and centralized data management. Create, share,
+                and analyze quizzes in real-time.</p>
+            <a href="signup_page.html"><button class="btn-large">Get Started</button></a>
+        </div>
+        <div class="hero-visual">
+            <svg width="100%" height="100%" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                <circle cx="250" cy="200" r="180" fill="#F0F0DB" fill-opacity="0.5" />
+                <circle cx="380" cy="80" r="40" fill="#E1D9BC" fill-opacity="0.6" />
+
+                <g filter="url(#shadow)">
+                    <rect x="50" y="80" width="400" height="260" rx="15" fill="white" />
+                    <path d="M50 95C50 86.7157 56.7157 80 65 80H435C443.284 80 450 86.7157 450 95V110H50V95Z"
+                        fill="#30364F" />
+                    <circle cx="70" cy="95" r="4" fill="#E1D9BC" />
+                    <circle cx="85" cy="95" r="4" fill="#E1D9BC" />
+                    <circle cx="100" cy="95" r="4" fill="#E1D9BC" />
+                </g>
+
+                <rect x="50" y="110" width="80" height="230" fill="#F8F9FA" rx="0" />
+                <rect x="65" y="140" width="50" height="8" rx="4" fill="#E1D9BC" />
+                <rect x="65" y="160" width="30" height="8" rx="4" fill="#D3D3D3" />
+                <rect x="65" y="180" width="40" height="8" rx="4" fill="#D3D3D3" />
+
+                <text x="160" y="150" font-family="Unbounded, sans-serif" font-size="14" fill="#30364F"
+                    font-weight="bold">Quiz Performance</text>
+
+                <rect x="160" y="270" width="30" height="0" rx="4" fill="#30364F">
+                    <animate attributeName="height" from="0" to="80" dur="1s" fill="freeze" />
+                    <animate attributeName="y" from="270" to="190" dur="1s" fill="freeze" />
+                </rect>
+                <rect x="210" y="270" width="30" height="0" rx="4" fill="#E1D9BC">
+                    <animate attributeName="height" from="0" to="120" dur="1.2s" fill="freeze" />
+                    <animate attributeName="y" from="270" to="150" dur="1.2s" fill="freeze" />
+                </rect>
+                <rect x="260" y="270" width="30" height="0" rx="4" fill="#30364F">
+                    <animate attributeName="height" from="0" to="60" dur="1.4s" fill="freeze" />
+                    <animate attributeName="y" from="270" to="210" dur="1.4s" fill="freeze" />
+                </rect>
+
+                <g filter="url(#shadow)">
+                    <rect x="320" y="140" width="110" height="80" rx="10" fill="white" stroke="#E1D9BC"
+                        stroke-width="2" />
+                    <text x="345" y="170" font-family="Unbounded, sans-serif" font-size="10" fill="#888">Score</text>
+                    <text x="340" y="200" font-family="Montserrat, sans-serif" font-size="28" fill="#30364F"
+                        font-weight="bold">98%</text>
+                </g>
+
+                <defs>
+                    <filter id="shadow" x="0" y="0" width="500" height="400" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="10" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Why use Curio?</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Instant Evaluation</h3>
+                <p>Stop grading manually. Get scores and analytics immediately after submission.</p>
+            </div>
+            <div class="card">
+                <h3>Scalable Cloud</h3>
+                <p>Host hundreds of students simultaneously without infrastructure worries.</p>
+            </div>
+            <div class="card">
+                <h3>Centralized Data</h3>
+                <p>Manage all questions, results, and student performance in one secure dashboard.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="back-to-top">
+            <a href="index.html">Back to top</a>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Get to Know Us</h4>
+                    <a href="#">About Curio</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Investor Relations</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>For students</h4>
+                    <a href="#">Quizes</a>
+                    <a href="#">Learn</a>
+                    <a href="#">Test</a>
+                    <a href="#">Quiz solutions</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>For teachers</h4>
+                    <a href="#">Conduct Quiz</a>
+                    <a href="#">student performance card</a>
+                    <a href="#">Activity</a>
+                    <a href="#">Teachers</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Let Us Help You</h4>
+                    <a href="#">Your Account</a>
+                    <a href="#">Your Quizes</a>
+                    <a href="#">Help & Support</a>
+                    <a href="#">Safety & Security</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="footer-branding">
+                <a href="#" class="footer-logo">Curio</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                <p>&copy; 2026 Curio, Inc. or its affiliates</p>
+                <div class="legal-links">
+                    <a href="#">Conditions of Use</a>
+                    <a href="#">Privacy Notice</a>
+                    <a href="#">Consumer Health Data Privacy Disclosure</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+</html>

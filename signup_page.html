@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up</title>
+    <link rel="stylesheet" href="./signup_page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <div class="left-panel">
+        <img src="./images/signup left image .jpeg" alt="image">
+    </div>
+
+    <div class="right-panel">
+        <div class="close-btn">
+            <a href="index.html"><button>&times;</button></a>
+        </div>
+
+        <div class="tabs">
+            <a href="signup_page.html"><div class="Signin tab">Sign up</div></a>
+            <a href="login_page.html"><div class="Login">Log in</div></a>
+        </div>
+
+        <div class="social-container">
+            <button class="google-btn">
+                <img src="./images/New-Google-Logo.jpg" alt="Google" width="20">
+                Continue with Google
+            </button>
+            <button class="fb-btn">
+                <i class="fab fa-facebook"></i>
+            </button>
+        </div>
+
+        <div class="separator">or email</div>
+
+        <form>
+            <div class="input-group">
+                <label>Birthday <i class="fas fa-info-circle info-icon"></i></label>
+                <div class="birthday-row">
+                    <select>
+                        <option>Month</option>
+                    </select>
+                    <select>
+                        <option>Day</option>
+                    </select>
+                    <select>
+                        <option>Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="user@email.com">
+            </div>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" placeholder="andrew123">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <div class="password-wrapper">
+                    <input type="password" placeholder="........">
+                    <i class="far fa-eye toggle-password"></i>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Sign Up</button>
+            <a href="./login_page.html">
+                <button type="submit" class="existingAccountButton">Already have an account? log in</button>
+            </a>
+        </form>
+    </div>
+    
+</body>
+
+</html>

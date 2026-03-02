@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curio | Community</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="community.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@400;600&family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <div class="logo">Curio</div>
+        <nav class="nav-menu">
+            <a href="./Homepage.html"      class="nav-item"><i class="fas fa-home"></i> Home</a>
+            <a href="./your_library.html"  class="nav-item"><i class="fas fa-layer-group"></i> Your library</a>
+            <a href="./community.html"     class="nav-item active"><i class="fas fa-user-friends"></i> Community <span class="badge">New</span></a>
+            <a href="./notification.html" class="nav-item"><i class="fas fa-bell"></i> Notifications</a>
+        </nav>
+        <div class="nav-section">
+            <h3>Your Assignments</h3>
+            <a href="./assignments.html" class="nav-item"><i class="fas fa-folder-plus"></i> Assignments</a>
+        </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <!-- Sidebar overlay (mobile) -->
+        <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search quizzes, topics, creators...">
+            </div>
+            <div class="header-actions">
+                <button class="btn-create" title="Create"><i class="fas fa-plus"></i></button>
+                <button class="btn-upgrade">Upgrade: free 7-day trial</button>
+                <div class="user-profile">
+                    <img src="https://i.pravatar.cc/40?img=3" alt="User Profile">
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== COMMUNITY BODY ===== -->
+        <div class="community-body">
+
+            <!-- ── Main scroll area ── -->
+            <div class="community-main">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div>
+                        <div class="page-title">Quiz Board</div>
+                        <div class="page-subtitle">Discover, play, and share quizzes with the Curio community</div>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn-primary"><i class="fas fa-plus"></i> Create Quiz</button>
+                        <button class="btn-outline"><i class="fas fa-sign-in-alt"></i> Join Quiz</button>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="filter-btn active" onclick="switchFilter('all', this)">
+                        <i class="fas fa-border-all"></i> All <span class="count-pill">42</span>
+                    </button>
+                    <button class="filter-btn" onclick="switchFilter('trending', this)">
+                        <i class="fas fa-fire"></i> Trending
+                    </button>
+                    <button class="filter-btn" onclick="switchFilter('new', this)">
+                        <i class="fas fa-star"></i> New
+                    </button>
+                    <button class="filter-btn" onclick="switchFilter('stem', this)">
+                        <i class="fas fa-flask"></i> STEM
+                    </button>
+                    <button class="filter-btn" onclick="switchFilter('lang', this)">
+                        <i class="fas fa-language"></i> Languages
+                    </button>
+                    <button class="filter-btn" onclick="switchFilter('history', this)">
+                        <i class="fas fa-landmark"></i> History
+                    </button>
+                </div>
+
+                <!-- Section label -->
+                <div class="section-label">
+                    Featured Quizzes
+                    <a href="#">View all →</a>
+                </div>
+
+                <!-- Quiz List -->
+                <div class="quiz-list">
+
+                    <!-- Quiz 1: AP Biology -->
+                    <div class="quiz-card">
+                        <div class="quiz-thumb">🔬</div>
+                        <div class="quiz-info">
+                            <div class="quiz-title">
+                                AP Biology Review
+                            </div>
+                            <div class="quiz-meta">
+                                <span class="quiz-tag stem">STEM</span>
+                                <span class="quiz-stat"><i class="fas fa-question-circle"></i> 45 Questions</span>
+                                <span class="quiz-stat"><i class="fas fa-users"></i> 2.3k Players</span>
+                                <span class="quiz-stat"><i class="fas fa-star"></i> 4.8</span>
+                            </div>
+                        </div>
+                        <div class="quiz-actions">
+                            <button class="btn-save"><i class="fas fa-bookmark"></i></button>
+                            <button class="btn-start">Start Quiz →</button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz 2: French Vocab -->
+                    <div class="quiz-card">
+                        <div class="quiz-thumb">🇫🇷</div>
+                        <div class="quiz-info">
+                            <div class="quiz-title">
+                                French Vocab Booster
+                                <span class="quiz-tag new">New</span>
+                            </div>
+                            <div class="quiz-meta">
+                                <span class="quiz-tag lang">Languages</span>
+                                <span class="quiz-stat"><i class="fas fa-question-circle"></i> 60 Questions</span>
+                                <span class="quiz-stat"><i class="fas fa-users"></i> 950 Players</span>
+                                <span class="quiz-stat"><i class="fas fa-star"></i> 4.6</span>
+                            </div>
+                        </div>
+                        <div class="quiz-actions">
+                            <button class="btn-save"><i class="fas fa-bookmark"></i></button>
+                            <button class="btn-start">Start Quiz →</button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz 3: Ancient Civilizations -->
+                    <div class="quiz-card">
+                        <div class="quiz-thumb">🏛️</div>
+                        <div class="quiz-info">
+                            <div class="quiz-title">
+                                Ancient Civilizations
+                            </div>
+                            <div class="quiz-meta">
+                                <span class="quiz-tag history">History</span>
+                                <span class="quiz-stat"><i class="fas fa-question-circle"></i> 55 Questions</span>
+                                <span class="quiz-stat"><i class="fas fa-users"></i> 1.5k Players</span>
+                                <span class="quiz-stat"><i class="fas fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                        <div class="quiz-actions">
+                            <button class="btn-save"><i class="fas fa-bookmark"></i></button>
+                            <button class="btn-start">Start Quiz →</button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz 4: Algebra -->
+                    <div class="quiz-card">
+                        <div class="quiz-thumb">➕</div>
+                        <div class="quiz-info">
+                            <div class="quiz-title">
+                                Algebra Fundamentals
+                            </div>
+                            <div class="quiz-meta">
+                                <span class="quiz-tag math">Math</span>
+                                <span class="quiz-stat"><i class="fas fa-question-circle"></i> 40 Questions</span>
+                                <span class="quiz-stat"><i class="fas fa-users"></i> 800 Players</span>
+                                <span class="quiz-stat"><i class="fas fa-star"></i> 4.5</span>
+                            </div>
+                        </div>
+                        <div class="quiz-actions">
+                            <button class="btn-save"><i class="fas fa-bookmark"></i></button>
+                            <button class="btn-start">Start Quiz →</button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz 5: Shakespeare -->
+                    <div class="quiz-card">
+                        <div class="quiz-thumb">📖</div>
+                        <div class="quiz-info">
+                            <div class="quiz-title">
+                                Shakespeare's Plays
+                                <span class="quiz-tag trending"><i class="fas fa-fire"></i> Trending</span>
+                            </div>
+                            <div class="quiz-meta">
+                                <span class="quiz-tag lit">Literature</span>
+                                <span class="quiz-stat"><i class="fas fa-question-circle"></i> 50 Questions</span>
+                                <span class="quiz-stat"><i class="fas fa-users"></i> 1.1k Players</span>
+                                <span class="quiz-stat"><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                        </div>
+                        <div class="quiz-actions">
+                            <button class="btn-save"><i class="fas fa-bookmark"></i></button>
+                            <button class="btn-start">Start Quiz →</button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz 6: Global Capitals -->
+                    <div class="quiz-card">
+                        <div class="quiz-thumb">🌍</div>
+                        <div class="quiz-info">
+                            <div class="quiz-title">
+                                Global Capitals
+                            </div>
+                            <div class="quiz-meta">
+                                <span class="quiz-tag geo">Geography</span>
+                                <span class="quiz-stat"><i class="fas fa-question-circle"></i> 70 Questions</span>
+                                <span class="quiz-stat"><i class="fas fa-users"></i> 1.3k Players</span>
+                                <span class="quiz-stat"><i class="fas fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                        <div class="quiz-actions">
+                            <button class="btn-save"><i class="fas fa-bookmark"></i></button>
+                            <button class="btn-start">Start Quiz →</button>
+                        </div>
+                    </div>
+
+                </div><!-- end quiz-list -->
+
+            </div><!-- end community-main -->
+
+            <!-- ── Right Panel ── -->
+            <aside class="right-panel">
+
+                <!-- Leaderboard -->
+                <div class="panel-card">
+                    <div class="panel-card-title">🏆 Top Quiz Makers — This Month</div>
+                    <div class="leader-list">
+
+                        <div class="leader-row">
+                            <div class="leader-rank gold">1</div>
+                            <img class="leader-avatar" src="https://i.pravatar.cc/40?img=32" alt="Aarav Sharma">
+                            <div class="leader-info">
+                                <div class="leader-name">Aarav Sharma</div>
+                                <div class="leader-subject">STEM</div>
+                            </div>
+                            <div class="leader-pts">2,460 pts</div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="leader-row">
+                            <div class="leader-rank silver">2</div>
+                            <img class="leader-avatar" src="https://i.pravatar.cc/40?img=44" alt="Sneha Patel">
+                            <div class="leader-info">
+                                <div class="leader-name">Sneha Patel</div>
+                                <div class="leader-subject">Languages</div>
+                            </div>
+                            <div class="leader-pts">2,100 pts</div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="leader-row">
+                            <div class="leader-rank bronze">3</div>
+                            <img class="leader-avatar" src="https://i.pravatar.cc/40?img=75" alt="Liam Chen">
+                            <div class="leader-info">
+                                <div class="leader-name">Liam Chen</div>
+                                <div class="leader-subject">Math</div>
+                            </div>
+                            <div class="leader-pts">1,950 pts</div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="leader-row">
+                            <div class="leader-rank">4</div>
+                            <img class="leader-avatar" src="https://i.pravatar.cc/40?img=12" alt="Priya R.">
+                            <div class="leader-info">
+                                <div class="leader-name">Priya R.</div>
+                                <div class="leader-subject">History</div>
+                            </div>
+                            <div class="leader-pts">1,720 pts</div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="leader-row">
+                            <div class="leader-rank">5</div>
+                            <img class="leader-avatar" src="https://i.pravatar.cc/40?img=57" alt="Arjun K.">
+                            <div class="leader-info">
+                                <div class="leader-name">Arjun K.</div>
+                                <div class="leader-subject">STEM</div>
+                            </div>
+                            <div class="leader-pts">1,580 pts</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Quiz Actions -->
+                <div class="panel-card">
+                    <div class="panel-card-title">⚡ Quick Actions</div>
+                    <button class="quiz-action-btn create">
+                        <span><i class="fas fa-plus"></i> Create a New Quiz</span>
+                        <span>›</span>
+                    </button>
+                    <button class="quiz-action-btn join">
+                        <span><i class="fas fa-sign-in-alt"></i> Join a Quiz</span>
+                        <span>›</span>
+                    </button>
+                </div>
+
+                <!-- Trending Topics -->
+                <div class="panel-card">
+                    <div class="panel-card-title">🔥 Trending Topics</div>
+                    <div class="topic-chips">
+                        <span class="topic-chip">Photosynthesis</span>
+                        <span class="topic-chip">World War II</span>
+                        <span class="topic-chip">Python Basics</span>
+                        <span class="topic-chip">Calculus</span>
+                        <span class="topic-chip">Shakespeare</span>
+                        <span class="topic-chip">Space</span>
+                        <span class="topic-chip">Grammar</span>
+                        <span class="topic-chip">Economics</span>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div><!-- end community-body -->
+    </main>
+</div>
+
+<script src="community.js"></script>
+</body>
+</html>

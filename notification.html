@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curio | Notifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="notification.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@400;600&family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <div class="logo">Curio</div>
+        <nav class="nav-menu">
+            <a href="./Homepage.html"      class="nav-item"><i class="fas fa-home"></i> Home</a>
+            <a href="./your_library.html"  class="nav-item"><i class="fas fa-layer-group"></i> Your library</a>
+            <a href="./community.html"                    class="nav-item"><i class="fas fa-user-friends"></i> Community <span class="badge">New</span></a>
+            <a href="./notification.html" class="nav-item active"><i class="fas fa-bell"></i> Notifications <span class="notif-count">6</span></a>
+        </nav>
+        <div class="nav-section">
+            <h3>Your Assignments</h3>
+            <a href="./Assignment_tab.html" class="nav-item"><i class="fas fa-folder-plus"></i> New Assignment</a>
+        </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search notifications...">
+            </div>
+            <div class="header-actions">
+                <button class="btn-create" title="Create"><i class="fas fa-plus"></i></button>
+                <button class="btn-upgrade">Upgrade: free 7-day trial</button>
+                <div class="user-profile">
+                    <img src="https://i.pravatar.cc/40?img=3" alt="User Profile">
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="content-body">
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-left">
+                    <h1>Notifications</h1>
+                    <p class="subtitle">You have <span id="unread-count" class="unread-count-highlight">6</span> unread notifications</p>
+                </div>
+                <div class="page-header-actions">
+                    <button class="btn-mark-all" onclick="markAllRead()"><i class="fas fa-check-double"></i> Mark all read</button>
+                    <button class="btn-clear-all" onclick="clearAll()"><i class="fas fa-trash"></i> Clear all</button>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterNotifs('all', this)">
+                    <i class="fas fa-border-all"></i> All <span class="count-pill" id="pill-all">12</span>
+                </button>
+                <button class="filter-btn" onclick="filterNotifs('quiz', this)">
+                    <i class="fas fa-question-circle"></i> Quizzes <span class="count-pill" id="pill-quiz">5</span>
+                </button>
+                <button class="filter-btn" onclick="filterNotifs('achievement', this)">
+                    <i class="fas fa-trophy"></i> Achievements <span class="count-pill" id="pill-achievement">3</span>
+                </button>
+                <button class="filter-btn" onclick="filterNotifs('social', this)">
+                    <i class="fas fa-user-friends"></i> Social <span class="count-pill" id="pill-social">2</span>
+                </button>
+                <button class="filter-btn" onclick="filterNotifs('system', this)">
+                    <i class="fas fa-cog"></i> System <span class="count-pill" id="pill-system">2</span>
+                </button>
+            </div>
+
+            <!-- ===== NOTIFICATIONS ===== -->
+            <div id="notif-container">
+
+                <!-- TODAY -->
+                <div class="notif-section" data-section="today">
+                    <div class="section-label">Today</div>
+                    <div class="notif-list">
+
+                        <!-- Unread: Quiz deadline -->
+                        <div class="notif-card unread" data-type="quiz">
+                            <div class="notif-icon-wrap red"><i class="fas fa-clock"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">Quiz deadline in 2 hours!</div>
+                                <div class="notif-desc">Your assigned quiz <strong class="highlight-peach">Physics: Chapter 3</strong> is due at 6:00 PM today. You've completed 75% — finish it before time runs out.</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag red"><i class="fas fa-fire tag-icon"></i> Urgent</span>
+                                    <span class="notif-tag peach">Quiz</span>
+                                    <span class="notif-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <div class="unread-dot"></div>
+                                <button class="notif-action-btn">Resume</button>
+                            </div>
+                        </div>
+
+                        <!-- Unread: Quiz shared -->
+                        <div class="notif-card unread" data-type="social">
+                            <div class="notif-icon-wrap blue"><i class="fas fa-share-alt"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">alex_dev shared a quiz with you</div>
+                                <div class="notif-desc"><strong class="highlight-peach">alex_dev</strong> shared <strong class="highlight-white">"Quantum Mechanics 101"</strong> with you — 40 questions covering wave-particle duality and Schrödinger's equation.</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag blue">Shared</span>
+                                    <span class="notif-tag peach">Quiz</span>
+                                    <span class="notif-time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <div class="unread-dot"></div>
+                                <button class="notif-action-btn">View Quiz</button>
+                            </div>
+                        </div>
+
+                        <!-- Unread: Quiz score -->
+                        <div class="notif-card unread" data-type="quiz">
+                            <div class="notif-icon-wrap green"><i class="fas fa-check-circle"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">You scored 92% on Cell Biology!</div>
+                                <div class="notif-desc">Great work! You answered 37 out of 40 questions correctly on <strong class="highlight-peach">Cell Biology Deep Dive</strong>. You're in the top 10% of all learners this week.</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag green">Score</span>
+                                    <span class="notif-tag peach">Quiz</span>
+                                    <span class="notif-time">6 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <div class="unread-dot"></div>
+                                <button class="notif-action-btn">See Results</button>
+                            </div>
+                        </div>
+
+                        <!-- Unread: Achievement -->
+                        <div class="notif-card unread" data-type="achievement">
+                            <div class="notif-icon-wrap yellow"><i class="fas fa-medal"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">Achievement Unlocked: "Quiz Wizard" 🧙</div>
+                                <div class="notif-desc">You've completed <strong class="highlight-white">10 quizzes</strong> with a score above 80%. Keep up the momentum and unlock the next tier: <strong class="highlight-peach">"Grand Master"</strong> at 25 quizzes.</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag yellow"><i class="fas fa-star tag-icon"></i> Achievement</span>
+                                    <span class="notif-time">8 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <div class="unread-dot"></div>
+                                <button class="notif-action-btn">View Badge</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- YESTERDAY -->
+                <div class="notif-section" data-section="yesterday">
+                    <div class="section-label">Yesterday</div>
+                    <div class="notif-list">
+
+                        <!-- Unread: Quiz comment -->
+                        <div class="notif-card unread" data-type="social">
+                            <div class="notif-icon-wrap blue"><i class="fas fa-comment-alt"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">Someone commented on your quiz</div>
+                                <div class="notif-desc"><strong class="highlight-peach">star_gazer</strong> commented on <strong class="highlight-white">"World Geography Basics"</strong>: <em class="highlight-muted">"Really well made! Could you add more questions about South America?"</em></div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag blue">Comment</span>
+                                    <span class="notif-tag peach">Your Quiz</span>
+                                    <span class="notif-time">Yesterday, 3:15 PM</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <div class="unread-dot"></div>
+                                <button class="notif-action-btn">Reply</button>
+                            </div>
+                        </div>
+
+                        <!-- Unread: Streak -->
+                        <div class="notif-card unread" data-type="achievement">
+                            <div class="notif-icon-wrap yellow"><i class="fas fa-fire"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">🔥 7-day streak — keep it going!</div>
+                                <div class="notif-desc">You're on a <strong class="highlight-white">7-day learning streak</strong>. Complete at least one quiz today to maintain it. You're just 3 days away from the <strong class="highlight-peach">"10-Day Blaze"</strong> badge.</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag yellow">Streak</span>
+                                    <span class="notif-tag peach">Achievement</span>
+                                    <span class="notif-time">Yesterday, 9:00 AM</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <div class="unread-dot"></div>
+                                <button class="notif-action-btn">Take a Quiz</button>
+                            </div>
+                        </div>
+
+                        <!-- Read: Recommendation -->
+                        <div class="notif-card" data-type="quiz">
+                            <div class="notif-icon-wrap peach"><i class="fas fa-lightbulb"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">Recommended for you: Art History 101</div>
+                                <div class="notif-desc">Based on your interest in History, we think you'd enjoy <strong class="highlight-peach">Art History 101</strong> — 40 cards covering Renaissance, Baroque, and Impressionist movements. Rated 4.9 ⭐</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag peach">Recommended</span>
+                                    <span class="notif-time">Yesterday, 8:00 AM</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <button class="notif-action-btn">Start Quiz</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- EARLIER THIS WEEK -->
+                <div class="notif-section" data-section="week">
+                    <div class="section-label">Earlier this week</div>
+                    <div class="notif-list">
+
+                        <!-- Read: Quiz published -->
+                        <div class="notif-card" data-type="quiz">
+                            <div class="notif-icon-wrap peach"><i class="fas fa-rocket"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">Your quiz is live — 38 views already!</div>
+                                <div class="notif-desc">Your quiz <strong class="highlight-peach">"Physics: Motion &amp; Forces"</strong> was published and has already received 38 views and 5 ratings. Average score by other learners is 71%.</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag peach">Published</span>
+                                    <span class="notif-time">Mon, 2:30 PM</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <button class="notif-action-btn outline">View Stats</button>
+                            </div>
+                        </div>
+
+                        <!-- Read: Leaderboard -->
+                        <div class="notif-card" data-type="achievement">
+                            <div class="notif-icon-wrap yellow"><i class="fas fa-trophy"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">Top 5% in Science this week</div>
+                                <div class="notif-desc">Your performance in Science quizzes placed you in the <strong class="highlight-white">top 5%</strong> of all Curio learners globally. Your accuracy was <strong class="highlight-green">91%</strong> across 6 quizzes.</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag yellow">Leaderboard</span>
+                                    <span class="notif-time">Sun, 11:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <button class="notif-action-btn outline">View Rank</button>
+                            </div>
+                        </div>
+
+                        <!-- Read: New Feature -->
+                        <div class="notif-card" data-type="system">
+                            <div class="notif-icon-wrap blue"><i class="fas fa-bolt"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">New feature: Timed Quiz Mode</div>
+                                <div class="notif-desc">We've launched <strong class="highlight-peach">Timed Mode</strong> — set a countdown per question and sharpen your speed. Try it on any quiz from your library. Pro users get detailed time analytics.</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag blue">New Feature</span>
+                                    <span class="notif-time">Sat, 10:00 AM</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <button class="notif-action-btn outline">Try It</button>
+                            </div>
+                        </div>
+
+                        <!-- Read: Maintenance -->
+                        <div class="notif-card" data-type="system">
+                            <div class="notif-icon-wrap blue"><i class="fas fa-tools"></i></div>
+                            <div class="notif-body">
+                                <div class="notif-title">Scheduled maintenance — Friday 2–4 AM</div>
+                                <div class="notif-desc">Curio will undergo routine maintenance this Friday between 2:00–4:00 AM IST. All quiz progress is automatically saved. You may experience brief interruptions during this window.</div>
+                                <div class="notif-meta">
+                                    <span class="notif-tag blue">System</span>
+                                    <span class="notif-time">Fri, 6:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="notif-right">
+                                <button class="notif-action-btn outline">Got It</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty state -->
+            <div class="empty-panel" id="empty-state">
+                <i class="fas fa-bell-slash"></i>
+                <h3>No notifications here</h3>
+                <p>You're all caught up in this category.</p>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<script src="notifications.js"></script>
+</body>
+</html>

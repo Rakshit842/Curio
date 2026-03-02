@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curio | Your Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="your_library.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@400;600&family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+            <div class="logo">Curio</div>
+            <nav class="nav-menu">
+                <a href="./Homepage.html" class="nav-item"><i class="fas fa-home"></i> Home</a>
+                <a href="./your_library.html" class="nav-item active"><i class="fas fa-layer-group"></i> Your library</a>
+                <a href="./community.html" class="nav-item"><i class="fas fa-user-friends"></i> Community <span class="badge">New</span></a>
+                <a href="./notification.html" class="nav-item"><i class="fas fa-bell"></i> Notifications</a>
+            </nav>
+            <div class="nav-section">
+                <h3>Your Assignments</h3>
+                <a href="./Assignment_tab.html" class="nav-item"><i class="fas fa-folder-plus"></i> New Assignment</a>
+            </div>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main-content">
+
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search your library...">
+                </div>
+                <div class="header-actions">
+                    <button class="btn-create" title="Create"><i class="fas fa-plus"></i></button>
+                    <button class="btn-upgrade">Upgrade: free 7-day trial</button>
+                    <div class="user-profile">
+                        <img src="https://i.pravatar.cc/40?img=3" alt="User Profile">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="content-body">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div>
+                        <h1>Your Library</h1>
+                        <p class="subtitle">Track your creations, progress, and collections</p>
+                    </div>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab('created', this)">
+                        <i class="fas fa-pen-nib"></i> Created
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('attempted', this)">
+                        <i class="fas fa-check-circle"></i> Attempted
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('performance', this)">
+                        <i class="fas fa-chart-line"></i> Performance
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('collection', this)">
+                        <i class="fas fa-bookmark"></i> Collection
+                    </button>
+                </div>
+
+                <!-- ===== TAB: CREATED ===== -->
+                <div id="tab-created" class="tab-panel active">
+
+                    <div class="stats-grid">
+                        <div class="stat-card hero">
+                            <div class="stat-icon"><i class="fas fa-pencil-alt"></i></div>
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Quizzes Created</div>
+                            <div class="stat-change up"><i class="fas fa-arrow-up"></i> 3 this month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                            <div class="stat-value">4.2k</div>
+                            <div class="stat-label">Total Views</div>
+                            <div class="stat-change up"><i class="fas fa-arrow-up"></i> +18% vs last month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-star"></i></div>
+                            <div class="stat-value">4.7</div>
+                            <div class="stat-label">Average Rating</div>
+                            <div class="stat-change neutral"><i class="fas fa-minus"></i> Based on 214 reviews</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-share-alt"></i></div>
+                            <div class="stat-value">389</div>
+                            <div class="stat-label">Total Shares</div>
+                            <div class="stat-change up"><i class="fas fa-arrow-up"></i> 42 new shares</div>
+                        </div>
+                    </div>
+
+                    <div class="section-title"><i class="fas fa-th-large"></i> Your Quizzes</div>
+                    <div class="quiz-grid">
+                        <div class="quiz-card">
+                            <div class="quiz-card-header">
+                                <div class="quiz-card-icon"><i class="fas fa-atom"></i></div>
+                                <i class="fas fa-ellipsis-v quiz-card-menu"></i>
+                            </div>
+                            <div class="quiz-card-title">Physics: Motion & Forces</div>
+                            <div class="quiz-card-meta">32 questions • Created 2 weeks ago</div>
+                            <div class="quiz-card-footer">
+                                <span class="tag accent">Science</span>
+                                <div class="rating"><i class="fas fa-star"></i> 4.8</div>
+                            </div>
+                        </div>
+                        <div class="quiz-card">
+                            <div class="quiz-card-header">
+                                <div class="quiz-card-icon"><i class="fas fa-globe"></i></div>
+                                <i class="fas fa-ellipsis-v quiz-card-menu"></i>
+                            </div>
+                            <div class="quiz-card-title">World Geography Basics</div>
+                            <div class="quiz-card-meta">48 questions • Created 1 month ago</div>
+                            <div class="quiz-card-footer">
+                                <span class="tag accent">Geography</span>
+                                <div class="rating"><i class="fas fa-star"></i> 4.6</div>
+                            </div>
+                        </div>
+                        <div class="quiz-card">
+                            <div class="quiz-card-header">
+                                <div class="quiz-card-icon"><i class="fas fa-flask"></i></div>
+                                <i class="fas fa-ellipsis-v quiz-card-menu"></i>
+                            </div>
+                            <div class="quiz-card-title">Organic Chemistry 101</div>
+                            <div class="quiz-card-meta">25 questions • Created 3 weeks ago</div>
+                            <div class="quiz-card-footer">
+                                <span class="tag accent">Chemistry</span>
+                                <div class="rating"><i class="fas fa-star"></i> 4.5</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== TAB: ATTEMPTED ===== -->
+                <div id="tab-attempted" class="tab-panel">
+
+                    <div class="stats-grid">
+                        <div class="stat-card hero">
+                            <div class="stat-icon"><i class="fas fa-check-double"></i></div>
+                            <div class="stat-value">47</div>
+                            <div class="stat-label">Quizzes Attempted</div>
+                            <div class="stat-change up"><i class="fas fa-arrow-up"></i> 5 this week</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-tasks"></i></div>
+                            <div class="stat-value">82%</div>
+                            <div class="stat-label">Completion Rate</div>
+                            <div class="stat-change up"><i class="fas fa-arrow-up"></i> Up from 74%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                            <div class="stat-value">14h</div>
+                            <div class="stat-label">Time Spent</div>
+                            <div class="stat-change neutral"><i class="fas fa-minus"></i> Avg 18 min/quiz</div>
+                        </div>
+                    </div>
+
+                    <div class="section-title"><i class="fas fa-history"></i> Recent Attempts</div>
+                    <div class="quiz-grid">
+                        <div class="quiz-card">
+                            <div class="quiz-card-header">
+                                <div class="quiz-card-icon"><i class="fas fa-flag"></i></div>
+                                <i class="fas fa-ellipsis-v quiz-card-menu"></i>
+                            </div>
+                            <div class="quiz-card-title">World Flags</div>
+                            <div class="quiz-card-meta">59 cards • by Curio</div>
+                            <div class="progress-bar"><div class="progress" style="width:30%"></div></div>
+                            <div class="quiz-card-footer" >
+                                <span class="tag">30% complete</span>
+                                <span class="tag accent">In Progress</span>
+                            </div>
+                        </div>
+                        <div class="quiz-card">
+                            <div class="quiz-card-header">
+                                <div class="quiz-card-icon"><i class="fas fa-dna"></i></div>
+                                <i class="fas fa-ellipsis-v quiz-card-menu"></i>
+                            </div>
+                            <div class="quiz-card-title">Cell Biology Deep Dive</div>
+                            <div class="quiz-card-meta">40 cards • by bio_teacher</div>
+                            <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
+                            <div class="quiz-card-footer" >
+                                <span class="tag">Completed</span>
+                                <span class="tag accent">Score: 92%</span>
+                            </div>
+                        </div>
+                        <div class="quiz-card">
+                            <div class="quiz-card-header">
+                                <div class="quiz-card-icon"><i class="fas fa-landmark"></i></div>
+                                <i class="fas fa-ellipsis-v quiz-card-menu"></i>
+                            </div>
+                            <div class="quiz-card-title">Art History 101</div>
+                            <div class="quiz-card-meta">40 cards • by Curio</div>
+                            <div class="progress-bar"><div class="progress" style="width:10%"></div></div>
+                            <div class="quiz-card-footer" >
+                                <span class="tag">10% complete</span>
+                                <span class="tag accent">Just Started</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== TAB: PERFORMANCE ===== -->
+                <div id="tab-performance" class="tab-panel">
+
+                    <div class="stats-grid">
+                        <div class="stat-card hero">
+                            <div class="stat-icon"><i class="fas fa-bullseye"></i></div>
+                            <div class="stat-value">78%</div>
+                            <div class="stat-label">Overall Accuracy</div>
+                            <div class="stat-change up"><i class="fas fa-arrow-up"></i> +4% this month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-stopwatch"></i></div>
+                            <div class="stat-value">8.3s</div>
+                            <div class="stat-label">Avg Answer Time</div>
+                            <div class="stat-change up"><i class="fas fa-arrow-up"></i> 1.2s faster</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                            <div class="stat-value">Science</div>
+                            <div class="stat-label">Strongest Subject</div>
+                            <div class="stat-change neutral"><i class="fas fa-star"></i> 91% accuracy</div>
+                        </div>
+                    </div>
+
+                    <div class="perf-grid">
+                        <div class="perf-chart-card">
+                            <div class="perf-chart-title">ACCURACY BY WEEK</div>
+                            <div class="bar-chart">
+                                <div class="bar-item">
+                                    <div class="bar-val">62%</div>
+                                    <div class="bar" style="height:80px"></div>
+                                    <div class="bar-label">W1</div>
+                                </div>
+                                <div class="bar-item">
+                                    <div class="bar-val">70%</div>
+                                    <div class="bar" style="height:91px"></div>
+                                    <div class="bar-label">W2</div>
+                                </div>
+                                <div class="bar-item">
+                                    <div class="bar-val">68%</div>
+                                    <div class="bar" style="height:88px"></div>
+                                    <div class="bar-label">W3</div>
+                                </div>
+                                <div class="bar-item">
+                                    <div class="bar-val">74%</div>
+                                    <div class="bar" style="height:96px"></div>
+                                    <div class="bar-label">W4</div>
+                                </div>
+                                <div class="bar-item">
+                                    <div class="bar-val">78%</div>
+                                    <div class="bar active" style="height:101px"></div>
+                                    <div class="bar-label">W5</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="perf-chart-card">
+                            <div class="perf-chart-title">SUBJECT BREAKDOWN</div>
+                            <div class="subject-list">
+                                <div class="subject-row">
+                                    <div class="subject-dot"></div>
+                                    <div class="subject-name">Science</div>
+                                    <div class="subject-score">91%</div>
+                                </div>
+                                <div class="subject-row">
+                                    <div class="subject-dot" style="background:#94a3b8"></div>
+                                    <div class="subject-name">History</div>
+                                    <div class="subject-score">83%</div>
+                                </div>
+                                <div class="subject-row">
+                                    <div class="subject-dot" style="background:#94a3b8"></div>
+                                    <div class="subject-name">Geography</div>
+                                    <div class="subject-score">79%</div>
+                                </div>
+                                <div class="subject-row">
+                                    <div class="subject-dot" style="background:#94a3b8"></div>
+                                    <div class="subject-name">Art</div>
+                                    <div class="subject-score">65%</div>
+                                </div>
+                                <div class="subject-row">
+                                    <div class="subject-dot" style="background:#94a3b8"></div>
+                                    <div class="subject-name">Math</div>
+                                    <div class="subject-score">72%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== TAB: COLLECTION ===== -->
+                <div id="tab-collection" class="tab-panel">
+
+                    <!-- Sub-tabs -->
+                    <div class="collection-tabs">
+                        <button class="coll-tab active" onclick="switchCollTab('subjects', this)">By Subject</button>
+                        <button class="coll-tab" onclick="switchCollTab('saved', this)">Saved</button>
+                        <button class="coll-tab" onclick="switchCollTab('bookmarked', this)">Bookmarked</button>
+                    </div>
+
+                    <!-- By Subject -->
+                    <div id="coll-subjects" class="coll-panel">
+                        <div class="subject-collection-grid">
+                            <div class="subject-coll-card">
+                                <div class="subject-coll-icon"><i class="fas fa-atom"></i></div>
+                                <div class="subject-coll-name">Science</div>
+                                <div class="subject-coll-count">14 quizzes</div>
+                            </div>
+                            <div class="subject-coll-card">
+                                <div class="subject-coll-icon"><i class="fas fa-landmark"></i></div>
+                                <div class="subject-coll-name">History</div>
+                                <div class="subject-coll-count">9 quizzes</div>
+                            </div>
+                            <div class="subject-coll-card">
+                                <div class="subject-coll-icon"><i class="fas fa-globe"></i></div>
+                                <div class="subject-coll-name">Geography</div>
+                                <div class="subject-coll-count">7 quizzes</div>
+                            </div>
+                            <div class="subject-coll-card">
+                                <div class="subject-coll-icon"><i class="fas fa-calculator"></i></div>
+                                <div class="subject-coll-name">Mathematics</div>
+                                <div class="subject-coll-count">11 quizzes</div>
+                            </div>
+                            <div class="subject-coll-card">
+                                <div class="subject-coll-icon"><i class="fas fa-palette"></i></div>
+                                <div class="subject-coll-name">Art</div>
+                                <div class="subject-coll-count">5 quizzes</div>
+                            </div>
+                            <div class="subject-coll-card">
+                                <div class="subject-coll-icon"><i class="fas fa-book"></i></div>
+                                <div class="subject-coll-name">Literature</div>
+                                <div class="subject-coll-count">6 quizzes</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saved -->
+                    <div id="coll-saved" class="coll-panel" style="display:none">
+                        <div class="saved-list">
+                            <div class="saved-item">
+                                <div class="saved-item-icon"><i class="fas fa-dna"></i></div>
+                                <div class="saved-item-info">
+                                    <div class="saved-item-title">Advanced Genetics</div>
+                                    <div class="saved-item-meta">55 questions • by dr_genes • Saved 3 days ago</div>
+                                </div>
+                                <span class="saved-item-badge">Biology</span>
+                            </div>
+                            <div class="saved-item">
+                                <div class="saved-item-icon"><i class="fas fa-brain"></i></div>
+                                <div class="saved-item-info">
+                                    <div class="saved-item-title">Intro to Psychology</div>
+                                    <div class="saved-item-meta">40 questions • by mind_matters • Saved 1 week ago</div>
+                                </div>
+                                <span class="saved-item-badge">Psychology</span>
+                            </div>
+                            <div class="saved-item">
+                                <div class="saved-item-icon"><i class="fas fa-code"></i></div>
+                                <div class="saved-item-info">
+                                    <div class="saved-item-title">Python Programming Basics</div>
+                                    <div class="saved-item-meta">30 questions • by code_chief • Saved 2 weeks ago</div>
+                                </div>
+                                <span class="saved-item-badge">CS</span>
+                            </div>
+                            <div class="saved-item">
+                                <div class="saved-item-icon"><i class="fas fa-music"></i></div>
+                                <div class="saved-item-info">
+                                    <div class="saved-item-title">Music Theory Fundamentals</div>
+                                    <div class="saved-item-meta">20 questions • by treble_clef • Saved 1 month ago</div>
+                                </div>
+                                <span class="saved-item-badge">Music</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bookmarked -->
+                    <div id="coll-bookmarked" class="coll-panel" style="display:none">
+                        <div class="saved-list">
+                            <div class="saved-item">
+                                <div class="saved-item-icon"><i class="fas fa-flag"></i></div>
+                                <div class="saved-item-info">
+                                    <div class="saved-item-title">World Flags</div>
+                                    <div class="saved-item-meta">59 cards • by Curio • Bookmarked yesterday</div>
+                                </div>
+                                <span class="saved-item-badge"><i class="fas fa-bookmark"></i></span>
+                            </div>
+                            <div class="saved-item">
+                                <div class="saved-item-icon"><i class="fas fa-star"></i></div>
+                                <div class="saved-item-info">
+                                    <div class="saved-item-title">Astronomy: Solar System</div>
+                                    <div class="saved-item-meta">35 cards • by star_gazer • Bookmarked 4 days ago</div>
+                                </div>
+                                <span class="saved-item-badge"><i class="fas fa-bookmark"></i></span>
+                            </div>
+                            <div class="saved-item">
+                                <div class="saved-item-icon"><i class="fas fa-leaf"></i></div>
+                                <div class="saved-item-info">
+                                    <div class="saved-item-title">Plant Biology & Ecology</div>
+                                    <div class="saved-item-meta">28 cards • by green_thumb • Bookmarked 1 week ago</div>
+                                </div>
+                                <span class="saved-item-badge"><i class="fas fa-bookmark"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function switchTab(tabName, btn) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + tabName).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        function switchCollTab(tabName, btn) {
+            document.querySelectorAll('.coll-panel').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.coll-tab').forEach(b => b.classList.remove('active'));
+            document.getElementById('coll-' + tabName).style.display = 'block';
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>

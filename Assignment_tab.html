@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curio | Assignments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./Assignment_tab.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@400;600&family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <div class="logo">Curio</div>
+        <nav class="nav-menu">
+            <a href="./Homepage.html"  class="nav-item"><i class="fas fa-home"></i> Home</a>
+            <a href="./your_library.html" class="nav-item"><i class="fas fa-layer-group"></i> Your library</a>
+            <a href="./community.html"  class="nav-item"><i class="fas fa-user-friends"></i> Community <span class="badge">New</span></a>
+            <a href="./notification.html" class="nav-item"><i class="fas fa-bell"></i> Notifications</a>
+        </nav>
+        <div class="nav-section">
+            <h3>Your Assignments</h3>
+            <a href="./Assignment_tab.html" class="nav-item active"><i class="fas fa-folder-plus"></i> Assignments</a>
+        </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <!-- Sidebar overlay for mobile -->
+        <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search assignments, students...">
+            </div>
+            <div class="header-actions">
+                <button class="btn-create" title="Create"><i class="fas fa-plus"></i></button>
+                <button class="btn-upgrade">Upgrade: free 7-day trial</button>
+                <div class="user-profile">
+                    <img src="https://i.pravatar.cc/40?img=3" alt="User Profile">
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== ASSIGNMENT CONTENT ===== -->
+        <div class="content-body">
+
+            <!-- Page Header -->
+            <div class="assign-header">
+                <div>
+                    <div class="assign-title">Assign<span>ments</span></div>
+                    <div class="assign-subtitle">Create, submit, and grade assignments across all your courses</div>
+                </div>
+                <div class="assign-header-right">
+                    <button class="btn-new-assign"><i class="fas fa-plus"></i> NEW ASSIGNMENT</button>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="assign-tabs">
+                <button class="assign-tab active" onclick="switchTab('overview', this)">
+                    📋 Overview
+                </button>
+                <button class="assign-tab" onclick="switchTab('submissions', this)">
+                    📊 Submissions <span class="tab-count">8</span>
+                </button>
+                <button class="assign-tab" onclick="switchTab('grading', this)">
+                    🏆 Grading
+                </button>
+                <button class="assign-tab" onclick="switchTab('analytics', this)">
+                    📈 Analytics
+                </button>
+            </div>
+
+            <!-- ============================= -->
+            <!-- TAB: OVERVIEW                 -->
+            <!-- ============================= -->
+            <div id="tab-overview" class="tab-panel active">
+
+                <!-- Filter Row -->
+                <div class="filter-row">
+                    <button class="filter-chip active" data-group="subject" onclick="toggleChip(this)">All</button>
+                    <button class="filter-chip" data-group="subject" onclick="toggleChip(this)">🔬 Science</button>
+                    <button class="filter-chip" data-group="subject" onclick="toggleChip(this)">➕ Math</button>
+                    <button class="filter-chip" data-group="subject" onclick="toggleChip(this)">💻 Tech</button>
+                    <button class="filter-chip" data-group="subject" onclick="toggleChip(this)">📜 History</button>
+                    <div class="filter-divider"></div>
+                    <button class="filter-chip" data-group="status" onclick="toggleChip(this)">🟡 Pending</button>
+                    <button class="filter-chip" data-group="status" onclick="toggleChip(this)">🟢 Submitted</button>
+                    <button class="filter-chip" data-group="status" onclick="toggleChip(this)">🔵 Graded</button>
+                    <select class="sort-select">
+                        <option>Sort: Deadline ↑</option>
+                        <option>Sort: Deadline ↓</option>
+                        <option>Sort: Marks</option>
+                        <option>Sort: Name</option>
+                    </select>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="qs-card">
+                        <div class="qs-icon">📝</div>
+                        <div>
+                            <div class="qs-num">12</div>
+                            <div class="qs-label">Total Assigned</div>
+                        </div>
+                    </div>
+                    <div class="qs-card">
+                        <div class="qs-icon">⏳</div>
+                        <div>
+                            <div class="qs-num pending">5</div>
+                            <div class="qs-label">Pending</div>
+                        </div>
+                    </div>
+                    <div class="qs-card">
+                        <div class="qs-icon">✅</div>
+                        <div>
+                            <div class="qs-num submitted">4</div>
+                            <div class="qs-label">Submitted</div>
+                        </div>
+                    </div>
+                    <div class="qs-card">
+                        <div class="qs-icon">🏆</div>
+                        <div>
+                            <div class="qs-num graded">3</div>
+                            <div class="qs-label">Graded</div>
+                        </div>
+                    </div>
+                    <div class="qs-card">
+                        <div class="qs-icon">🔥</div>
+                        <div>
+                            <div class="qs-num due">2</div>
+                            <div class="qs-label">Due Today</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Assignments -->
+                <div class="section-header">
+                    <div class="section-title-dark">Active Assignments</div>
+                    <a href="#" class="view-all-link">View all 12 →</a>
+                </div>
+
+                <div class="assign-cards-grid">
+
+                    <!-- Card 1: Cell Division (Pending) -->
+                    <div class="assign-card">
+                        <div class="assign-card-top">
+                            <span class="subject-tag biology">🔬 Biology</span>
+                            <span class="status-tag pending">⏳ Pending</span>
+                        </div>
+                        <div class="assign-card-title">Cell Division &amp; Mitosis — Lab Report</div>
+                        <div class="assign-card-desc">Document your findings from the microscope lab session. Include diagrams, observations and conclusions.</div>
+                        <div class="assign-card-meta">
+                            <span class="meta-chip">📅 Due Mar 5, 2026</span>
+                            <span class="meta-chip">🏆 50 Marks</span>
+                            <span class="meta-chip">✍️ Manual</span>
+                        </div>
+                        <div class="time-bar-wrap">
+                            <div class="time-bar-label">
+                                <span>TIME REMAINING</span>
+                                <span>3d 23h 45m</span>
+                            </div>
+                            <div class="time-bar-track">
+                                <div class="time-bar-fill time-bar-55"></div>
+                            </div>
+                        </div>
+                        <div class="assign-card-footer">
+                            <div class="avatar-stack">
+                                <div class="avatar-sm">AK</div>
+                                <div class="avatar-sm">RM</div>
+                                <div class="avatar-sm">NP</div>
+                            </div>
+                            <span class="class-label">Class 11-A</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Integral Calculus (Submitted) -->
+                    <div class="assign-card">
+                        <div class="assign-card-top">
+                            <span class="subject-tag math">➕ Mathematics</span>
+                            <span class="status-tag submitted">✅ Submitted</span>
+                        </div>
+                        <div class="assign-card-title">Integral Calculus — Problem Set 3</div>
+                        <div class="assign-card-desc">Solve 20 integration problems covering substitution, by-parts, and trigonometric identities.</div>
+                        <div class="assign-card-meta">
+                            <span class="meta-chip">📅 Due Feb 28, 2026</span>
+                            <span class="meta-chip">🏆 100 Marks</span>
+                            <span class="meta-chip">🤖 Auto</span>
+                        </div>
+                        <div class="submitted-info">
+                            <span>📊 Submitted Feb 27, 2026 at 9:42 PM</span>
+                            <span class="on-time-label">✓ On Time</span>
+                        </div>
+                        <div class="assign-card-footer">
+                            <div class="avatar-stack">
+                                <div class="avatar-sm">AK</div>
+                                <div class="avatar-sm">NP</div>
+                            </div>
+                            <span class="class-label">Class 11-A</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Python DS (Graded) -->
+                    <div class="assign-card">
+                        <div class="assign-card-top">
+                            <span class="subject-tag tech">💻 Tech</span>
+                            <span class="status-tag graded">✓ Graded</span>
+                        </div>
+                        <div class="assign-card-title">Python Data Structures — Assignment 2</div>
+                        <div class="assign-card-desc">Implement a linked list and binary search tree in Python with full test coverage.</div>
+                        <div class="assign-card-meta">
+                            <span class="meta-chip">📅 Due Feb 19, 2026</span>
+                            <span class="meta-chip">🏆 75 Marks</span>
+                            <span class="meta-chip">🤖 Auto</span>
+                        </div>
+                        <div class="submitted-info">
+                            <span>📊 Submitted Feb 19, 2026 at 6:30 PM</span>
+                            <span class="on-time-label">✓ Early!</span>
+                        </div>
+                        <div class="assign-card-footer">
+                            <div class="avatar-stack">
+                                <div class="avatar-sm">VT</div>
+                                <div class="avatar-sm">MH</div>
+                                <div class="avatar-sm">SK</div>
+                            </div>
+                            <span class="class-label">Class 12-CS</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Cold War Essay (Pending) -->
+                    <div class="assign-card">
+                        <div class="assign-card-top">
+                            <span class="subject-tag history">📜 History</span>
+                            <span class="status-tag pending">⏳ Pending</span>
+                        </div>
+                        <div class="assign-card-title">Cold War Essay — Causes &amp; Consequences</div>
+                        <div class="assign-card-desc">Write a 1500-word essay analysing the key causes and long-term consequences of the Cold War.</div>
+                        <div class="assign-card-meta">
+                            <span class="meta-chip">📅 Due Mar 10, 2026</span>
+                            <span class="meta-chip">🏆 80 Marks</span>
+                            <span class="meta-chip">✍️ Manual</span>
+                        </div>
+                        <div class="time-bar-wrap">
+                            <div class="time-bar-label">
+                                <span>TIME REMAINING</span>
+                                <span>8d 14h 00m</span>
+                            </div>
+                            <div class="time-bar-track">
+                                <div class="time-bar-fill time-bar-78"></div>
+                            </div>
+                        </div>
+                        <div class="assign-card-footer">
+                            <div class="avatar-stack">
+                                <div class="avatar-sm">PR</div>
+                                <div class="avatar-sm">SK</div>
+                            </div>
+                            <span class="class-label">Class 10-B</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============================= -->
+            <!-- TAB: SUBMISSIONS              -->
+            <!-- ============================= -->
+            <div id="tab-submissions" class="tab-panel">
+
+                <div class="sub-controls">
+                    <select class="sub-select">
+                        <option>All Assignments</option>
+                        <option>Integral Calculus PS3</option>
+                        <option>Python Data Structures</option>
+                        <option>Cold War Essay</option>
+                        <option>Cell Division Lab</option>
+                    </select>
+                    <select class="sub-select">
+                        <option>All Students</option>
+                        <option>Class 11-A</option>
+                        <option>Class 12-CS</option>
+                        <option>Class 10-B</option>
+                    </select>
+                    <button class="btn-download"><i class="fas fa-download"></i> DOWNLOAD ALL (ZIP)</button>
+                    <button class="btn-bulk">📋 BULK GRADE</button>
+                </div>
+
+                <div class="sub-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Assignment</th>
+                                <th>Submitted</th>
+                                <th>Status</th>
+                                <th>Marks</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="student-cell">
+                                        <div class="avatar-lg">AK</div>
+                                        <div>
+                                            <div class="student-name">Arjun K.</div>
+                                            <div class="student-class">Class 11-A</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Integral Calculus PS3</td>
+                                <td>
+                                    <div class="submit-time">Feb 27, 9:42 PM</div>
+                                    <div class="time-badge ontime">✓ On time</div>
+                                </td>
+                                <td><span class="status-tag graded">Graded</span></td>
+                                <td><span class="marks-val">92/100</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fas fa-pen"></i></button>
+                                        <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-cell">
+                                        <div class="avatar-lg">NP</div>
+                                        <div>
+                                            <div class="student-name">Nisha P.</div>
+                                            <div class="student-class">Class 11-A</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Integral Calculus PS3</td>
+                                <td>
+                                    <div class="submit-time">Feb 28, 11:58 PM</div>
+                                    <div class="time-badge ontime">✓ On time</div>
+                                </td>
+                                <td><span class="status-tag submitted">Submitted</span></td>
+                                <td><span class="not-graded">Not graded</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fas fa-pen"></i></button>
+                                        <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-cell">
+                                        <div class="avatar-lg">RM</div>
+                                        <div>
+                                            <div class="student-name">Ravi M.</div>
+                                            <div class="student-class">Class 11-A</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Integral Calculus PS3</td>
+                                <td>
+                                    <div class="submit-time">Mar 1, 2:14 AM</div>
+                                    <div class="time-badge late">⚠ 2h late</div>
+                                </td>
+                                <td><span class="status-tag late">Late</span></td>
+                                <td><span class="not-graded">Not graded</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fas fa-pen"></i></button>
+                                        <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-cell">
+                                        <div class="avatar-lg">SK</div>
+                                        <div>
+                                            <div class="student-name">Sara K.</div>
+                                            <div class="student-class">Class 10-B</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Cell Division Lab</td>
+                                <td>
+                                    <div class="time-badge missing">Not submitted</div>
+                                </td>
+                                <td><span class="status-tag missing">Missing</span></td>
+                                <td><span class="dash">—</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-cell">
+                                        <div class="avatar-lg">VT</div>
+                                        <div>
+                                            <div class="student-name">Veer T.</div>
+                                            <div class="student-class">Class 12-CS</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Python Data Structures</td>
+                                <td>
+                                    <div class="submit-time">Feb 19, 6:30 PM</div>
+                                    <div class="time-badge early">✓ Early!</div>
+                                </td>
+                                <td><span class="status-tag graded">Graded</span></td>
+                                <td><span class="marks-val">68/75</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fas fa-pen"></i></button>
+                                        <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-cell">
+                                        <div class="avatar-lg">PR</div>
+                                        <div>
+                                            <div class="student-name">Priya R.</div>
+                                            <div class="student-class">Class 10-B</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Cold War Essay</td>
+                                <td>
+                                    <div class="time-badge missing">Not submitted</div>
+                                </td>
+                                <td><span class="status-tag overdue">Overdue</span></td>
+                                <td><span class="dash">—</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-cell">
+                                        <div class="avatar-lg">MH</div>
+                                        <div>
+                                            <div class="student-name">Maya H.</div>
+                                            <div class="student-class">Class 12-CS</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Python Data Structures</td>
+                                <td>
+                                    <div class="submit-time">Feb 20, 10:05 AM</div>
+                                    <div class="time-badge ontime">✓ On time</div>
+                                </td>
+                                <td><span class="status-tag submitted">Submitted</span></td>
+                                <td><span class="not-graded">Not graded</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fas fa-pen"></i></button>
+                                        <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="student-cell">
+                                        <div class="avatar-lg">NK</div>
+                                        <div>
+                                            <div class="student-name">Nikhil K.</div>
+                                            <div class="student-class">Class 11-A</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Integral Calculus PS3</td>
+                                <td>
+                                    <div class="submit-time">Feb 28, 6:15 PM</div>
+                                    <div class="time-badge ontime">✓ On time</div>
+                                </td>
+                                <td><span class="status-tag graded">Graded</span></td>
+                                <td><span class="marks-val">85/100</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fas fa-pen"></i></button>
+                                        <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- ============================= -->
+            <!-- TAB: GRADING                  -->
+            <!-- ============================= -->
+            <div id="tab-grading" class="tab-panel">
+
+                <div class="grading-layout">
+
+                    <!-- Queue -->
+                    <div class="grading-queue-card">
+                        <div class="queue-header">
+                            <div class="queue-title">Grading Queue</div>
+                            <span class="pending-badge">3 pending</span>
+                        </div>
+
+                        <div class="queue-item active" onclick="selectQueueItem(this)">
+                            <div class="queue-avatar">NP</div>
+                            <div class="queue-item-info">
+                                <div class="queue-item-name">Nisha P.</div>
+                                <div class="queue-item-assign">Integral Calculus PS3</div>
+                                <div class="queue-item-time">Submitted 14h ago</div>
+                            </div>
+                            <div class="queue-item-pts">100 pts</div>
+                        </div>
+
+                        <div class="queue-item" onclick="selectQueueItem(this)">
+                            <div class="queue-avatar">RM</div>
+                            <div class="queue-item-info">
+                                <div class="queue-item-name">Ravi M.</div>
+                                <div class="queue-item-assign">Integral Calculus PS3</div>
+                                <div class="queue-item-time">Submitted 2h ago <span class="late-chip">⚠ Late</span></div>
+                            </div>
+                            <div class="queue-item-pts">100 pts</div>
+                        </div>
+
+                        <div class="queue-item" onclick="selectQueueItem(this)">
+                            <div class="queue-avatar">MH</div>
+                            <div class="queue-item-info">
+                                <div class="queue-item-name">Maya H.</div>
+                                <div class="queue-item-assign">Python Data Structures</div>
+                                <div class="queue-item-time">Submitted 2d ago</div>
+                            </div>
+                            <div class="queue-item-pts">75 pts</div>
+                        </div>
+                    </div>
+
+                    <!-- Grading Panel -->
+                    <div class="grading-panel">
+                        <div class="grading-panel-header">
+                            <div>
+                                <div class="grading-student-name">Nisha P. — Integral Calculus PS3</div>
+                                <div class="grading-meta">Submitted Feb 28, 2026 &bull; 100 marks total</div>
+                            </div>
+                            <button class="btn-download-sm">
+                                <i class="fas fa-cloud-download-alt"></i>
+                                Download
+                            </button>
+                        </div>
+
+                        <!-- File Preview -->
+                        <div class="file-preview-box">
+                            <i class="fas fa-file-alt file-icon"></i>
+                            <div class="file-name">Calculus_PS3_Nisha.pdf</div>
+                            <div class="file-meta-text">2.3 MB &bull; Submitted Feb 28 at 11:58 PM</div>
+                            <button class="btn-open-preview">OPEN PREVIEW</button>
+                        </div>
+
+                        <!-- Rubric -->
+                        <div class="rubric-header">
+                            📋 Rubric Evaluation
+                        </div>
+
+                        <div class="rubric-row">
+                            <div class="rubric-label">
+                                <span>Concept Understanding</span>
+                                <span>22/25</span>
+                            </div>
+                            <div class="rubric-track"><div class="rubric-fill rubric-88"></div></div>
+                        </div>
+
+                        <div class="rubric-row">
+                            <div class="rubric-label">
+                                <span>Problem Solving Method</span>
+                                <span>20/25</span>
+                            </div>
+                            <div class="rubric-track"><div class="rubric-fill rubric-80"></div></div>
+                        </div>
+
+                        <div class="rubric-row">
+                            <div class="rubric-label">
+                                <span>Accuracy &amp; Calculations</span>
+                                <span>28/30</span>
+                            </div>
+                            <div class="rubric-track"><div class="rubric-fill rubric-93"></div></div>
+                        </div>
+
+                        <div class="rubric-row">
+                            <div class="rubric-label">
+                                <span>Presentation &amp; Clarity</span>
+                                <span>18/20</span>
+                            </div>
+                            <div class="rubric-track"><div class="rubric-fill rubric-90"></div></div>
+                        </div>
+
+                        <div class="grading-actions">
+                            <button class="btn-feedback">💬 Add Feedback</button>
+                            <button class="btn-submit-grade">Submit Grade — 88/100</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============================= -->
+            <!-- TAB: ANALYTICS               -->
+            <!-- ============================= -->
+            <div id="tab-analytics" class="tab-panel">
+
+                <!-- Stat Cards -->
+                <div class="analytics-stats">
+                    <div class="an-stat-card">
+                        <span class="an-stat-icon">📊</span>
+                        <div class="an-stat-value">76%</div>
+                        <div class="an-stat-label">Class Average</div>
+                        <div class="an-stat-sub"><i class="fas fa-arrow-up"></i> Better than last month</div>
+                        <div class="an-bg-circle"></div>
+                    </div>
+                    <div class="an-stat-card">
+                        <span class="an-stat-icon">🏆</span>
+                        <div class="an-stat-value">96%</div>
+                        <div class="an-stat-label">Highest Score</div>
+                        <div class="an-stat-sub blue"><i class="fas fa-arrow-up"></i> Veer T. — Python</div>
+                        <div class="an-bg-circle"></div>
+                    </div>
+                    <div class="an-stat-card">
+                        <span class="an-stat-icon">📉</span>
+                        <div class="an-stat-value">48%</div>
+                        <div class="an-stat-label">Lowest Score</div>
+                        <div class="an-stat-sub neutral">→ Cold War Essay</div>
+                        <div class="an-bg-circle"></div>
+                    </div>
+                    <div class="an-stat-card">
+                        <span class="an-stat-icon">⏰</span>
+                        <div class="an-stat-value">67%</div>
+                        <div class="an-stat-label">Submission Rate</div>
+                        <div class="an-stat-sub neutral">→ 8 of 12 submitted</div>
+                        <div class="an-bg-circle"></div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="analytics-charts">
+
+                    <!-- Bar Chart -->
+                    <div class="an-chart-card">
+                        <div class="an-chart-title">📈 Submission Rate by Assignment</div>
+                        <div class="bar-chart-wrap">
+                            <div class="bar-col">
+                                <div class="an-bar-val">85%</div>
+                                <div class="an-bar highlight bar-h-127"></div>
+                                <div class="an-bar-label">Calculus PS3</div>
+                            </div>
+                            <div class="bar-col">
+                                <div class="an-bar-val">70%</div>
+                                <div class="an-bar bar-h-105"></div>
+                                <div class="an-bar-label">Python DS</div>
+                            </div>
+                            <div class="bar-col">
+                                <div class="an-bar-val">55%</div>
+                                <div class="an-bar bar-h-82"></div>
+                                <div class="an-bar-label">Cold War</div>
+                            </div>
+                            <div class="bar-col">
+                                <div class="an-bar-val">90%</div>
+                                <div class="an-bar bar-h-135"></div>
+                                <div class="an-bar-label">Cell Division</div>
+                            </div>
+                            <div class="bar-col">
+                                <div class="an-bar-val">40%</div>
+                                <div class="an-bar bar-h-60"></div>
+                                <div class="an-bar-label">Optics Lab</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Donut Chart -->
+                    <div class="an-chart-card">
+                        <div class="an-chart-title">⏱️ On-Time vs Late</div>
+                        <div class="donut-wrap">
+                            <div class="donut-svg-wrap">
+                                <svg width="160" height="160" viewBox="0 0 160 160">
+                                    <!-- track -->
+                                    <circle cx="80" cy="80" r="60" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="22"/>
+                                    <!-- on-time 77%  circumference=376.99 → 290.3 -->
+                                    <circle cx="80" cy="80" r="60" fill="none"
+                                        stroke="#E1D9BC"
+                                        stroke-width="22"
+                                        stroke-dasharray="290.3 86.7"
+                                        stroke-dashoffset="94.25"/>
+                                    <!-- late 23% → 86.7 -->
+                                    <circle cx="80" cy="80" r="60" fill="none"
+                                        stroke="rgba(251,191,36,0.6)"
+                                        stroke-width="22"
+                                        stroke-dasharray="86.7 290.3"
+                                        stroke-dashoffset="-196.05"/>
+                                </svg>
+                                <div class="donut-center-text">
+                                    <div class="donut-pct">77%</div>
+                                    <div class="donut-sub">on time</div>
+                                </div>
+                            </div>
+                            <div class="donut-legend">
+                                <div class="legend-row">
+                                    <div class="legend-dot legend-dot-peach"></div>
+                                    <div class="legend-label">On time</div>
+                                    <div class="legend-val">77%</div>
+                                </div>
+                                <div class="legend-row">
+                                    <div class="legend-dot legend-dot-orange"></div>
+                                    <div class="legend-label">Late</div>
+                                    <div class="legend-val">23%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- end content-body -->
+    </main>
+</div>
+
+<script src="assignments.js"></script>
+</body>
+</html>
